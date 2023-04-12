@@ -201,6 +201,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="overview.html">Usage &amp; Reference</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Ridge regression example</a></li>
+
 </ul>
 
     </div>
@@ -429,15 +430,16 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Ridge regression example</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#citing-neuroscout">Citing Neuroscout</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fetching-neuroscout-data">Fetching Neuroscout Data</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-data-is-available">What data is available?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-datasets-are-available">What datasets are available?</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fetching-predictors">Fetching predictors</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fetch-fmri-data-and-loading-images">Fetch fMRI data and loading images</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image-preprocessing">Image preprocessing</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fitting-ridge-regression-model-using-melspectrogram-features">Fitting Ridge regression model using melspectrogram features</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fitting-ridge-regression-models-using-mel-spectrogram-features">Fitting ridge regression models using Mel spectrogram features</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mel-spectrogram-features-only">Mel-spectrogram features only</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ridge-regression-using-mfcc-features">Ridge regression using MFCC features</a></li>
 </ul>
@@ -445,6 +447,10 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finite-impulse-response-model">Finite impulse response model</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#where-to-go-from-here">Where to go from here?</a></li>
 </ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Citing Neuroscout</a></li>
+</ul>
+
             </nav>
         </div>
     </div>
@@ -457,9 +463,9 @@ document.write(`
                   
 <section class="tex2jax_ignore mathjax_ignore" id="ridge-regression-example">
 <h1>Ridge regression example<a class="headerlink" href="#ridge-regression-example" title="Permalink to this heading">#</a></h1>
-<p>This notebook implements a cross-valided voxel-wise encoding model for a single subject using Regularized Ridge Regression.</p>
+<p>This notebook implements a cross-valided voxelwise encoding model for a single subject using Regularized Ridge Regression.</p>
 <p>The goal is to demonstrate how to obtain Neuroscout data to fit models using custom pipelines. For a comprehensive tutorial, check out the excellent <a class="reference external" href="https://gallantlab.github.io/voxelwise_tutorials/index.html">voxelwise modeling tutorials</a> from the Gallant Lab.</p>
-<p><strong>Note</strong>: By implementing a custom pipeline, your analysis will not be centrally registered on <a class="reference external" href="http://neuroscout.org">neuroscout.org</a>, and a reproducible record will not be made. For analyses supported the Neuroscout-CLI (e.g. group voxel-wise mass univariate GLM models), it is recommended to use the <a class="reference external" href="http://neuroscout.org">neuroscout.org</a> web inteface, or follow the guide for programmatically <a class="reference external" href="https://pyns.readthedocs.io/en/latest/analyses.html">creating analyses
+<p><strong>Note</strong>: By implementing a custom pipeline, your analysis will not be centrally registered on <a class="reference external" href="http://neuroscout.org">neuroscout.org</a>, and a reproducible record will not be made. For analyses supported the Neuroscout-CLI (e.g. group voxelwise mass univariate GLM models), it is recommended to use the <a class="reference external" href="http://neuroscout.org">neuroscout.org</a> web inteface, or follow the guide for programmatically <a class="reference external" href="https://pyns.readthedocs.io/en/latest/analyses.html">creating analyses
 using pyNS</a>.</p>
 <section id="citing-neuroscout">
 <h2>Citing Neuroscout<a class="headerlink" href="#citing-neuroscout" title="Permalink to this heading">#</a></h2>
@@ -517,10 +523,10 @@ display(&quot;Done.&quot;)
 </section>
 <section id="fetching-neuroscout-data">
 <h2>Fetching Neuroscout Data<a class="headerlink" href="#fetching-neuroscout-data" title="Permalink to this heading">#</a></h2>
-<p>We can easily retrieve data from <em>Neuroscout</em> using <strong>pyNS</strong>– the Python Neuroscout API client.
-Be sure to refer to the official <a class="reference external" href="https://pyns.readthedocs.io/en/latest/">pyNS documentation</a> for further usage information, with particular focus on the section on <a class="reference external" href="https://pyns.readthedocs.io/en/latest/fetching.html">fetching predictors and images</a>.</p>
-<section id="what-data-is-available">
-<h3>What data is available?<a class="headerlink" href="#what-data-is-available" title="Permalink to this heading">#</a></h3>
+<p>We can easily retrieve data from <em>Neuroscout</em> using <strong>pyNS</strong> — the Python Neuroscout API client.</p>
+<p>Be sure to refer to the official <a class="reference external" href="https://pyns.readthedocs.io/en/latest/">pyNS documentation</a> for further usage information, with particular focus on the section on <a class="reference external" href="https://pyns.readthedocs.io/en/latest/fetching.html">fetching predictors and images</a>.</p>
+<section id="what-datasets-are-available">
+<h3>What datasets are available?<a class="headerlink" href="#what-datasets-are-available" title="Permalink to this heading">#</a></h3>
 <p>If you’re not sure what is available, you can browse Neuroscout’s <a class="reference external" href="https://neuroscout.org/datasets">datasets</a> and <a class="reference external" href="https://neuroscout.org/predictors">predictors</a> online.</p>
 <p>Here, we were going to focus on the ‘Budapest’ dataset, choosing the first subject (<code class="docutils literal notranslate"><span class="pre">sid000005</span></code>) as an example.</p>
 <div class="cell docutils container">
@@ -557,9 +563,9 @@ Be sure to refer to the official <a class="reference external" href="https://pyn
 </section>
 <section id="fetching-predictors">
 <h3>Fetching predictors<a class="headerlink" href="#fetching-predictors" title="Permalink to this heading">#</a></h3>
-<p>We will fetch two sets of predictors: <a class="reference external" href="https://neuroscout.org/predictor/mel_0">Mel spetrogram</a>, and  <a class="reference external" href="https://neuroscout.org/predictor/mfcc_0">Mel Frequency Cepstral Coefficient (MFCC)</a>. Both of these features are extracted from the auditory track of the movie stimulus (‘The Grand Budapest Hotel’). Later in the tutorial we’ll fit an encoding model to each set of features separately, and then jointly using a banded model.</p>
+<p>We will fetch two sets of predictors: <a class="reference external" href="https://neuroscout.org/predictor/mel_0">Mel spetrogram</a>, and  <a class="reference external" href="https://neuroscout.org/predictor/mfcc_0">Mel Frequency Cepstral Coefficient (MFCC)</a>. Both of these features are extracted from the auditory track of the movie stimulus (‘The Grand Budapest Hotel’). Later in the tutorial we’ll fit an encoding model to each set of features separately.</p>
 <p>First, we define the names of the predictors we will fetch.</p>
-<p>To learn more about basic Neuroscout API querying, see this <a class="reference external" href="https://pyns.readthedocs.io/en/latest/querying.html">guide</a></p>
+<p>To learn more about basic Neuroscout API querying, see this <a class="reference external" href="https://pyns.readthedocs.io/en/latest/querying.html">guide</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mfccs</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s1">&#39;mfcc_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">)]</span>
@@ -570,7 +576,7 @@ Be sure to refer to the official <a class="reference external" href="https://pyn
 </div>
 </div>
 </div>
-<p>Next, we can use the high-level utility <code class="docutils literal notranslate"><span class="pre">fetch_predictors</span></code> to retrieve these predictors for the target subject, rescaled using unit variance, and resampled to the imaging data’s Repetition Time (TR).</p>
+<p>Next, we can use the high-level utility <code class="docutils literal notranslate"><span class="pre">fetch_predictors</span></code> to retrieve these predictors for the target subject, rescaled to unit variance, and resampled to the imaging data’s Repetition Time (TR).</p>
 <p>Since downloading and resampling can take a minute, for this example we’ll only use the first three (out of 8) runs.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -581,7 +587,7 @@ Be sure to refer to the official <a class="reference external" href="https://pyn
 </div>
 </div>
 </div>
-<p>This results in a dataframe with predictors, plus meta-data such as file entities (e.g. subjects, runs)</p>
+<p>This results in a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> with predictors, plus metadata such as file entities (e.g. subjects, runs)</p>
 </section>
 <section id="fetch-fmri-data-and-loading-images">
 <h3>Fetch fMRI data and loading images<a class="headerlink" href="#fetch-fmri-data-and-loading-images" title="Permalink to this heading">#</a></h3>
@@ -613,7 +619,7 @@ INFO:datalad:Refresh progress bars
 </div>
 </div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">fetch_images</span></code> represents images as pybids <code class="docutils literal notranslate"><span class="pre">BIDSImageFile</span></code> objects, which include meta-data such as entities as part of the object</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">fetch_images</span></code> function returns images as pybids <code class="docutils literal notranslate"><span class="pre">BIDSImageFile</span></code> objects, which include metadata such as entities as part of the object</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">img_objs</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">get_entities</span><span class="p">()</span>
@@ -633,7 +639,7 @@ INFO:datalad:Refresh progress bars
 </div>
 </div>
 </div>
-<p>Using the entities, we can separate the list of images into two lists: preprocessed functional images, and brain masks</p>
+<p>Using the entities, we can separate the list of images into two lists: preprocessed functional images and brain masks:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">all_funcs</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">img_objs</span> <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">entities</span><span class="p">[</span><span class="s1">&#39;suffix&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;bold&#39;</span><span class="p">]</span>
@@ -674,7 +680,7 @@ INFO:datalad:Refresh progress bars
 </div>
 </div>
 </div>
-<p>Now we can apply the corresponding brain mask to each run using <code class="docutils literal notranslate"><span class="pre">NiftiMasker</span></code> from <code class="docutils literal notranslate"><span class="pre">nilearn</span></code>, and stack them into a single array for subsequent analysis</p>
+<p>Now we can apply the corresponding brain mask to each run using <code class="docutils literal notranslate"><span class="pre">NiftiMasker</span></code> from <code class="docutils literal notranslate"><span class="pre">nilearn</span></code>, and stack them into a single array for subsequent analysis:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -682,7 +688,7 @@ INFO:datalad:Refresh progress bars
 <span class="kn">from</span> <span class="nn">nilearn.maskers</span> <span class="kn">import</span> <span class="n">NiftiMasker</span>
 
 <span class="k">def</span> <span class="nf">_mask_and_stack_images</span><span class="p">(</span><span class="n">image_objects</span><span class="p">,</span> <span class="n">mask</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot; Stack images into single array, and collect metadata entities into dataframe &quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Stack images into single array, and collect metadata entities into DataFrame &quot;&quot;&quot;</span>
     <span class="n">masker</span> <span class="o">=</span> <span class="n">NiftiMasker</span><span class="p">(</span><span class="n">mask_img</span><span class="o">=</span><span class="n">mask</span><span class="p">)</span>
 
     <span class="n">arrays</span> <span class="o">=</span> <span class="p">[]</span>
@@ -705,7 +711,7 @@ INFO:datalad:Refresh progress bars
 </div>
 </div>
 </div>
-<p>The stacked runs have shape: (n_volumes, n_voxels)</p>
+<p>The stacked runs have shape: <code class="docutils literal notranslate"><span class="pre">(n_volumes,</span> <span class="pre">n_voxels)</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span><span class="o">.</span><span class="n">shape</span>
@@ -962,13 +968,13 @@ INFO:datalad:Refresh progress bars
 </div>
 </section>
 </section>
-<section id="fitting-ridge-regression-model-using-melspectrogram-features">
-<h2>Fitting Ridge regression model using melspectrogram features<a class="headerlink" href="#fitting-ridge-regression-model-using-melspectrogram-features" title="Permalink to this heading">#</a></h2>
-<p>First, we’ll fit a basic Ridge regression model to a subset of voxels (for demonstration purposes).</p>
-<p>We’ll define two cross-validators: an outer and an inner cv. The outer cross-validator will loop be used to estimate the performance of the model on unseen data, and the inner cv will be used to select the alpha hyperparameter for Ridge regression, within each fold of the outer cross-validator.</p>
+<section id="fitting-ridge-regression-models-using-mel-spectrogram-features">
+<h2>Fitting ridge regression models using Mel spectrogram features<a class="headerlink" href="#fitting-ridge-regression-models-using-mel-spectrogram-features" title="Permalink to this heading">#</a></h2>
+<p>First, we’ll fit a basic voxelwise ridge regression model to a subset of voxels (for demonstration purposes).</p>
+<p>We’ll define two cross-validators: an outer and an inner CV. The outer cross-validator will loop will be used to estimate the performance of the model on unseen data, and the inner cross-validator will be used to select the alpha hyperparameter for ridge regression, within each training fold of the outer cross-validator.</p>
 <p>In both cases, we’ll use the leave-one-run-out strategy, testing the model on an unseen run. Since there are multiple observations per run, we use the<code class="docutils literal notranslate"><span class="pre">run</span></code> column of <code class="docutils literal notranslate"><span class="pre">X_entities</span></code> to group observations, and ensure they appear together within each fold.</p>
 <p>Finally, we also define a scoring function, in this case, <code class="docutils literal notranslate"><span class="pre">correlation_score</span></code>.</p>
-<p>Note that we are using the <code class="docutils literal notranslate"><span class="pre">himalaya</span></code> library’s <code class="docutils literal notranslate"><span class="pre">KernelRidgeCV</span></code> estimator, as it is optimized for multi-target (i.e. voxel) estimation &amp; hyperparameter optimization with a sklearn-like API.</p>
+<p>Note that we are using the <code class="docutils literal notranslate"><span class="pre">himalaya</span></code> library’s <code class="docutils literal notranslate"><span class="pre">KernelRidgeCV</span></code> estimator, as it is optimized for multi-target (i.e. voxel) estimation &amp; hyperparameter optimization with an API inspired by scikit-learn.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">himalaya.ridge</span> <span class="kn">import</span> <span class="n">RidgeCV</span>
@@ -995,7 +1001,7 @@ INFO:datalad:Refresh progress bars
 </div>
 </div>
 </div>
-<p>The following is a generic pipeline for applying the esimator to the data (including support for banded-regression, which we’ll discuss later)</p>
+<p>The following is a generic pipeline for applying the estimator to the data:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
@@ -1053,7 +1059,7 @@ INFO:datalad:Refresh progress bars
 </div>
 <section id="mel-spectrogram-features-only">
 <h3>Mel-spectrogram features only<a class="headerlink" href="#mel-spectrogram-features-only" title="Permalink to this heading">#</a></h3>
-<p>First, we’ll fit this model using only the mel-spectrogram features:</p>
+<p>First, we’ll fit this model using only the Mel spectrogram features:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">predictors</span><span class="p">[</span><span class="n">mel</span><span class="p">]</span> <span class="c1"># Take a subset of X for this model</span>
@@ -1062,7 +1068,7 @@ INFO:datalad:Refresh progress bars
 </div>
 </div>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">result</span></code> dictionary contains:</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">results</span></code> dictionary contains:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
@@ -1075,7 +1081,7 @@ INFO:datalad:Refresh progress bars
 </div>
 </div>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">test_scores</span></code> &amp; coefficients are of shape: (n_folds, n_voxels).</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">test_scores</span></code> and coefficients are of shape: <code class="docutils literal notranslate"><span class="pre">(n_folds,</span> <span class="pre">n_voxels)</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span><span class="p">[</span><span class="s1">&#39;test_scores&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
@@ -1088,11 +1094,18 @@ INFO:datalad:Refresh progress bars
 </div>
 </div>
 </div>
-<p>We can average across folds, and only take positive scores:</p>
+<p>Then, we average across folds to get the mean score across for this subject:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mean_scores</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="s1">&#39;test_scores&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">mean_scores</span><span class="p">[</span><span class="n">mean_scores</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>For interpretation only, we’ll only look at positive scores:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mean_scores</span><span class="p">[</span><span class="n">mean_scores</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
 </pre></div>
 </div>
 </div>
@@ -1149,7 +1162,7 @@ INFO:datalad:Refresh progress bars
 </section>
 <section id="ridge-regression-using-mfcc-features">
 <h3>Ridge regression using MFCC features<a class="headerlink" href="#ridge-regression-using-mfcc-features" title="Permalink to this heading">#</a></h3>
-<p>We can now run a similar model, but using MFCC featues, instead of the mel-spectrogram</p>
+<p>We can now run a similar model, but using MFCC featues, instead of the Mel spectrogram</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">predictors</span><span class="p">[</span><span class="n">mfccs</span><span class="p">]</span>
@@ -1166,7 +1179,7 @@ INFO:datalad:Refresh progress bars
 </div>
 </div>
 </div>
-<p>From looking at whole-brain scores, the MFCC model outperforms the mel-spectrogram model</p>
+<p>From looking at whole-brain scores, the MFCC mdoel may outperform the Mel spectrogram model:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mean_scores_mfcc</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
@@ -1219,10 +1232,10 @@ INFO:datalad:Refresh progress bars
 </section>
 <section id="finite-impulse-response-model">
 <h2>Finite impulse response model<a class="headerlink" href="#finite-impulse-response-model" title="Permalink to this heading">#</a></h2>
-<p>Due to the hemodynamic response lag, it’s likely the model would perform better if the predictors were delayed.</p>
-<p>We can do so using a Finite Impulse Response (fir) model.</p>
+<p>Due to the hemodynamic lag, the model may perform better if the predictors were delayed relative to the stimulus onset.</p>
+<p>We can do so using a Finite Impulse Response (FIR) model.</p>
 <p>Using <code class="docutils literal notranslate"><span class="pre">fetch_predictors</span></code>, we can ask for the predictors to be returned as a <code class="docutils literal notranslate"><span class="pre">BIDSVariableCollection</span></code>, which enables us to apply any of the transformations implemented in pybids.</p>
-<p>Alternatively, you could apply any arbitrary transformations, by requesting a pandas data-frame.</p>
+<p>Alternatively, you could apply any arbitrary transformations, by requesting a pandas DataFrame.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">collection</span> <span class="o">=</span> <span class="n">fetch_predictors</span><span class="p">(</span><span class="n">all_vars</span><span class="p">,</span> <span class="n">dataset_name</span><span class="o">=</span><span class="s1">&#39;Budapest&#39;</span><span class="p">,</span> <span class="n">subject</span><span class="o">=</span><span class="s1">&#39;sid000005&#39;</span><span class="p">,</span> 
@@ -1231,7 +1244,7 @@ INFO:datalad:Refresh progress bars
 </div>
 </div>
 </div>
-<p>Next, we using <code class="docutils literal notranslate"><span class="pre">Convolve</span></code> to apply a <code class="docutils literal notranslate"><span class="pre">fir</span></code> model, and convert to a pandas df</p>
+<p>Next, we use <code class="docutils literal notranslate"><span class="pre">Convolve</span></code> to apply a <code class="docutils literal notranslate"><span class="pre">fir</span></code> model, and convert to a pandas df</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bids.modeling.transformations</span> <span class="kn">import</span> <span class="n">Convolve</span>
@@ -1253,6 +1266,18 @@ INFO:datalad:Refresh progress bars
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_509096</span><span class="o">/</span><span class="mf">513582641.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span>     <span class="k">return</span> <span class="n">collection_df</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span> 
+<span class="ne">---&gt; </span><span class="mi">16</span> <span class="n">collection_df</span> <span class="o">=</span> <span class="n">_convolve_df</span><span class="p">(</span><span class="n">collection</span><span class="p">,</span> <span class="n">all_vars</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;collection&#39; is not defined
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1266,8 +1291,8 @@ INFO:datalad:Refresh progress bars
 </div>
 </div>
 </div>
-<p>The FIR convolution results in 5x amount of predictors, including the delayed version of the predictors.</p>
-<p>We can now fit a model with all the mel-spectrogram features, to see if that improves prediction</p>
+<p>The FIR convolution results in 5x amount of predictors, including the delayed versions of the predictors.</p>
+<p>We can now fit a model with all the Mel spectrogram features, to see if it improves prediction:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">collection_df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="n">collection_df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;mel&#39;</span><span class="p">)]</span>
@@ -1284,7 +1309,7 @@ INFO:datalad:Refresh progress bars
 </div>
 </div>
 </div>
-<p>The max score increases, while the mean score remains similar (although marginally higher)</p>
+<p>The max score increases, while the mean score remains similar (although marginally higher):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mean_scores_mel_fir</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
@@ -1326,10 +1351,13 @@ INFO:datalad:Refresh progress bars
 <section id="where-to-go-from-here">
 <h2>Where to go from here?<a class="headerlink" href="#where-to-go-from-here" title="Permalink to this heading">#</a></h2>
 <p>The goal of this tutorial is to familiarize you with how to access Neuroscout’s data to fit custom models.</p>
-<p>This tutorial does not exhaustively cover all possible models that can be fit using these data, but at this point you should have the tool necessary to access the necessary data from NeuroScout’s API.</p>
+<p>This tutorial does not exhaustively cover all possible models that can be fit using these data, but at this point you should have the tools necessary to access the necessary data from NeuroScout’s API.</p>
 <p>By being able to fetch both predictor and brain imaging time courses using a simple, uniform API, it should be easy to extend these examples to a wide variety of machine learning workflows.</p>
-<p>Please ensure to cite Neuroscout if publishing any work using these data, and be aware that there are ongoing efforts to standardize the most common variations of voxel-wise encoding models, in order to enable users to fully specify and register their analysis in Neuroscout (like you currently can for summary-statistics multi-level GLM models).</p>
 </section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="id1">
+<h1>Citing Neuroscout<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h1>
+<p>Please ensure to cite Neuroscout if publishing any work using these data, and be aware that there are ongoing efforts to standardize the most common variations of voxel-wise encoding models, in order to enable users to fully specify and register their analysis in Neuroscout (like you currently can for summary-statistics multi-level GLM models).</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1394,15 +1422,16 @@ INFO:datalad:Refresh progress bars
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Ridge regression example</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#citing-neuroscout">Citing Neuroscout</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fetching-neuroscout-data">Fetching Neuroscout Data</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-data-is-available">What data is available?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-datasets-are-available">What datasets are available?</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fetching-predictors">Fetching predictors</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fetch-fmri-data-and-loading-images">Fetch fMRI data and loading images</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#image-preprocessing">Image preprocessing</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fitting-ridge-regression-model-using-melspectrogram-features">Fitting Ridge regression model using melspectrogram features</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fitting-ridge-regression-models-using-mel-spectrogram-features">Fitting ridge regression models using Mel spectrogram features</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mel-spectrogram-features-only">Mel-spectrogram features only</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ridge-regression-using-mfcc-features">Ridge regression using MFCC features</a></li>
 </ul>
@@ -1410,6 +1439,10 @@ INFO:datalad:Refresh progress bars
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finite-impulse-response-model">Finite impulse response model</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#where-to-go-from-here">Where to go from here?</a></li>
 </ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Citing Neuroscout</a></li>
+</ul>
+
   </nav></div>
 
 </div></div>
