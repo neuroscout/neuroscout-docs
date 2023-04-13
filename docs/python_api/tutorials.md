@@ -11,3 +11,5 @@ Here we highlight some of these advanced use cases and provide tutorials for how
   official pyNS documentation.
 
 * [Ridge cross-validated regression workflow](ridge_encoding.ipynb).
+
+* [Banded ridge cross-validated regression workflow](banded_regression.ipynb).

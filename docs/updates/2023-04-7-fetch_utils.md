@@ -28,13 +28,15 @@ With a set of predictors, and a set of brain imaging time courses, users can the
 
 To learn more about `pyns.fetch_utils`, check out the [documentation](https://pyns.readthedocs.io/en/latest/fetching.html).
 
-## An encoding model tutorial! 🚀
+## Encoding model tutorials! 🚀
 
-To demonstrate how to use `pyns.fetch_utils`, we have created a new example notebook that demonstrates how to fit a simple voxelwise encoding model using the new API fetch utilities. 
+To demonstrate how to use `pyns.fetch_utils`, we have created two new example notebook that demonstrate how to fit a simple voxelwise encoding model using the new API fetch utilities. 
 
-In this example, we implement a cross-validated voxelwise encoding model for a single subject using ridge regression implemented in [Himalaya](https://github.com/gallantlab/himalaya). This example was based on the fantastic [voxelwise modeling tutorials](https://gallantlab.org/voxelwise_tutorials/) by the Gallant Lab , so be sure to check out their tutorials if you are interested in learning more about voxelwise encoding models for fMRI data. 
+In the first example, we implement a cross-validated voxelwise encoding model for a single subject using ridge regression implemented in [Himalaya](https://github.com/gallantlab/himalaya). In the second example, we fit two feature sets jointly in the same model using a technique known as banded ridge regression. These techniques are very useful for fitting high dimensional feature sets to fMRI data, which is particularly useful for naturalistic data.
 
-Check out the [example in the Neuroscout Docs](https://neuroscout.github.io/neuroscout-docs/python_api/ridge_encoding.html), and follow along in the cloud using Google Colab by clicking on the 🚀.
+These example were based on the fantastic [voxelwise modeling tutorials](https://gallantlab.org/voxelwise_tutorials/) by the Gallant Lab , so be sure to check out their tutorials if you are interested in learning more about voxelwise encoding models for fMRI data. 
+
+Check out the examples [in the Neuroscout Docs tutorials](https://neuroscout.github.io/neuroscout-docs/python_api/tutorials.html), and follow along in the cloud using Google Colab by clicking on the 🚀.
 
 ## Where to go from here? 
 
