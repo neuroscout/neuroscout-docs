@@ -503,19 +503,7 @@ display(&quot;Done.&quot;)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Installing NeuroDebian...&#39;
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Installing DataLad...&#39;
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Installing PyNS...&#39;
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Installing analysis dependencies (nilearn, and himalaya)...&#39;
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Done.&#39;
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>UsageError: Line magic function `%%capture` not found.
 </pre></div>
 </div>
 </div>
@@ -605,12 +593,10 @@ pyNS includes a helper function to facilitate installing and fetching the datase
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.9/dist-packages/bids/layout/validation.py:48: UserWarning: The ability to pass arguments to BIDSLayout that control indexing is likely to be removed in future; possibly as early as PyBIDS 0.14. This includes the `config_filename`, `ignore`, `force_index`, and `index_metadata` arguments. The recommended usage pattern is to initialize a new BIDSLayoutIndexer with these arguments, and pass it to the BIDSLayout via the `indexer` argument.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/alejandro/miniconda3/envs/nsencoding/lib/python3.10/site-packages/bids/layout/validation.py:48: UserWarning: The ability to pass arguments to BIDSLayout that control indexing is likely to be removed in future; possibly as early as PyBIDS 0.14. This includes the `config_filename`, `ignore`, `force_index`, and `index_metadata` arguments. The recommended usage pattern is to initialize a new BIDSLayoutIndexer with these arguments, and pass it to the BIDSLayout via the `indexer` argument.
   warnings.warn(&quot;The ability to pass arguments to BIDSLayout that control &quot;
-/usr/local/lib/python3.9/dist-packages/bids/layout/validation.py:122: UserWarning: The PipelineDescription field was superseded by GeneratedBy in BIDS 1.4.0. You can use ``pybids upgrade`` to update your derivative dataset.
+/home/alejandro/miniconda3/envs/nsencoding/lib/python3.10/site-packages/bids/layout/validation.py:122: UserWarning: The PipelineDescription field was superseded by GeneratedBy in BIDS 1.4.0. You can use ``pybids upgrade`` to update your derivative dataset.
   warnings.warn(&quot;The PipelineDescription field was superseded &quot;
-INFO:datalad:Clear progress bars
-INFO:datalad:Refresh progress bars
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>action summary:
@@ -674,7 +660,7 @@ INFO:datalad:Refresh progress bars
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.9/dist-packages/IPython/core/interactiveshell.py:3553: FutureWarning: arrays to stack must be passed as a &quot;sequence&quot; type such as list or tuple. Support for non-sequence iterables such as generators is deprecated as of NumPy 1.16 and will raise an error in the future.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/alejandro/miniconda3/envs/nsencoding/lib/python3.10/site-packages/IPython/core/interactiveshell.py:3442: FutureWarning: arrays to stack must be passed as a &quot;sequence&quot; type such as list or tuple. Support for non-sequence iterables such as generators is deprecated as of NumPy 1.16 and will raise an error in the future.
   exec(code_obj, self.user_global_ns, self.user_ns)
 </pre></div>
 </div>
@@ -732,10 +718,7 @@ INFO:datalad:Refresh progress bars
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">
-  <div id="df-7fe0b649-fee1-4f14-b117-5d0c92997d9d">
-    <div class="colab-df-container">
-      <div>
+<div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -888,83 +871,7 @@ INFO:datalad:Refresh progress bars
   </tbody>
 </table>
 <p>1631 rows × 8 columns</p>
-</div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-7fe0b649-fee1-4f14-b117-5d0c92997d9d')"
-              title="Convert this dataframe to an interactive table."
-              style="display:none;">
-        
-  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
-       width="24px">
-    <path d="M0 0h24v24H0V0z" fill="none"/>
-    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
-  </svg>
-      </button>
-      
-  <style>
-    .colab-df-container {
-      display:flex;
-      flex-wrap:wrap;
-      gap: 12px;
-    }
-
-    .colab-df-convert {
-      background-color: #E8F0FE;
-      border: none;
-      border-radius: 50%;
-      cursor: pointer;
-      display: none;
-      fill: #1967D2;
-      height: 32px;
-      padding: 0 0 0 0;
-      width: 32px;
-    }
-
-    .colab-df-convert:hover {
-      background-color: #E2EBFA;
-      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
-      fill: #174EA6;
-    }
-
-    [theme=dark] .colab-df-convert {
-      background-color: #3B4455;
-      fill: #D2E3FC;
-    }
-
-    [theme=dark] .colab-df-convert:hover {
-      background-color: #434B5C;
-      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
-      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
-      fill: #FFFFFF;
-    }
-  </style>
-
-      <script>
-        const buttonEl =
-          document.querySelector('#df-7fe0b649-fee1-4f14-b117-5d0c92997d9d button.colab-df-convert');
-        buttonEl.style.display =
-          google.colab.kernel.accessAllowed ? 'block' : 'none';
-
-        async function convertToInteractive(key) {
-          const element = document.querySelector('#df-7fe0b649-fee1-4f14-b117-5d0c92997d9d');
-          const dataTable =
-            await google.colab.kernel.invokeFunction('convertToInteractive',
-                                                     [key], {});
-          if (!dataTable) return;
-
-          const docLinkHtml = 'Like what you see? Visit the ' +
-            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
-            + ' to learn more about interactive tables.';
-          element.innerHTML = '';
-          dataTable['output_type'] = 'display_data';
-          await google.colab.output.renderOutput(dataTable, element);
-          const docLink = document.createElement('div');
-          docLink.innerHTML = docLinkHtml;
-          element.appendChild(docLink);
-        }
-      </script>
-    </div>
-  </div>
-  </div></div>
+</div></div></div>
 </div>
 </section>
 </section>
@@ -995,7 +902,9 @@ INFO:datalad:Refresh progress bars
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.9/dist-packages/himalaya/backend/_utils.py:55: UserWarning: Setting backend to torch_cuda failed: PyTorch with CUDA is not available..Falling back to numpy backend.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/alejandro/miniconda3/envs/nsencoding/lib/python3.10/site-packages/torch/cuda/__init__.py:83: UserWarning: CUDA initialization: Unexpected error from cudaGetDeviceCount(). Did you run some cuda functions before calling NumCudaDevices() that might have already set an error? Error 804: forward compatibility was attempted on non supported HW (Triggered internally at  ../c10/cuda/CUDAFunctions.cpp:109.)
+  return torch._C._cuda_getDeviceCount() &gt; 0
+/home/alejandro/miniconda3/envs/nsencoding/lib/python3.10/site-packages/himalaya/backend/_utils.py:56: UserWarning: Setting backend to torch_cuda failed: PyTorch with CUDA is not available..Falling back to numpy backend.
   warnings.warn(f&quot;Setting backend to {backend} failed: {str(error)}.&quot;
 </pre></div>
 </div>
@@ -1008,6 +917,27 @@ INFO:datalad:Refresh progress bars
 
 <span class="k">def</span> <span class="nf">_model_cv</span><span class="p">(</span><span class="n">estimator</span><span class="p">,</span> <span class="n">cv</span><span class="p">,</span> <span class="n">X_vars</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">groups</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
               <span class="n">scoring</span><span class="o">=</span><span class="n">correlation_score</span><span class="p">,</span> <span class="n">inner_cv</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Cross-validate a model on a set of variables.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    estimator : Scikit-learn like estimator</span>
+<span class="sd">        Estimator to use for fitting the model. Must have a fit and predict</span>
+<span class="sd">        method.</span>
+<span class="sd">    cv : cross-validation generator or an iterable</span>
+<span class="sd">        Outer cross-validation generator to use for cross-validation.</span>
+<span class="sd">    X_vars : pandas.DataFrame</span>
+<span class="sd">        Dataframe containing the variables to use for prediction.</span>
+<span class="sd">    y : array-like, shape (n_samples, n_targets)</span>
+<span class="sd">        Target values.</span>
+<span class="sd">    groups : array-like, with shape (n_samples,), optional</span>
+<span class="sd">        Group labels for the samples used while splitting the dataset into</span>
+<span class="sd">        train/test set.</span>
+<span class="sd">    scoring : callable, optional  (default: correlation_score)</span>
+<span class="sd">        Scoring function to use for evaluating the model.</span>
+<span class="sd">    inner_cv : cross-validation generator or an iterable, optional</span>
+<span class="sd">        Inner cross-validation generator to use for cross-validation.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     
     <span class="c1"># Container for results</span>
     <span class="n">results</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
@@ -1043,6 +973,11 @@ INFO:datalad:Refresh progress bars
         
         <span class="c1"># Test scores</span>
         <span class="n">test_score</span> <span class="o">=</span> <span class="n">scoring</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">test</span><span class="p">],</span> <span class="n">test_prediction</span><span class="p">)</span>
+
+        <span class="c1"># If output is not an array, assume its a torch Tensor and convert to array</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">test_prediction</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+            <span class="n">test_prediction</span> <span class="o">=</span> <span class="n">test_prediction</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+            <span class="n">test_score</span> <span class="o">=</span> <span class="n">test_score</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
         
         <span class="c1"># Populate results dictionary</span>
         <span class="n">results</span><span class="p">[</span><span class="s1">&#39;test_predictions&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">test_prediction</span><span class="p">)</span>
@@ -1117,7 +1052,7 @@ INFO:datalad:Refresh progress bars
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.21056749949928916
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.21056749957050686
 </pre></div>
 </div>
 </div>
@@ -1129,7 +1064,7 @@ INFO:datalad:Refresh progress bars
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.027309387732880153
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.027309387725607995
 </pre></div>
 </div>
 </div>
@@ -1144,10 +1079,10 @@ INFO:datalad:Refresh progress bars
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.ZSlicer at 0x7eff5a63bd00&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.ZSlicer at 0x7f441c555d20&gt;
 </pre></div>
 </div>
-<img alt="../_images/f459cdf20faf3a7314f1bb03a587df96af88992354ff8087a7f98eae40b99c1e.png" src="../_images/f459cdf20faf3a7314f1bb03a587df96af88992354ff8087a7f98eae40b99c1e.png" />
+<img alt="../_images/2be63bd7cc0358faf20cb0ab26c638527ba8b4f0771054c3168073a01d926d06.png" src="../_images/2be63bd7cc0358faf20cb0ab26c638527ba8b4f0771054c3168073a01d926d06.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1187,7 +1122,7 @@ INFO:datalad:Refresh progress bars
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.3688733824442868
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.36887338343916876
 </pre></div>
 </div>
 </div>
@@ -1199,7 +1134,7 @@ INFO:datalad:Refresh progress bars
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.028177723905253683
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.02817772388516969
 </pre></div>
 </div>
 </div>
@@ -1213,10 +1148,10 @@ INFO:datalad:Refresh progress bars
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.ZSlicer at 0x7eff59d448b0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.ZSlicer at 0x7f4409861a20&gt;
 </pre></div>
 </div>
-<img alt="../_images/44cfca54f0ff28bdda460069deb8cb42efcbbf8c03c6fe30b2ac07636349b946.png" src="../_images/44cfca54f0ff28bdda460069deb8cb42efcbbf8c03c6fe30b2ac07636349b946.png" />
+<img alt="../_images/160d4130d8762b0cab36d473d34e72fd70f68f0308098bf7a7a304f85177b24b.png" src="../_images/160d4130d8762b0cab36d473d34e72fd70f68f0308098bf7a7a304f85177b24b.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1266,18 +1201,6 @@ INFO:datalad:Refresh progress bars
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_509096</span><span class="o">/</span><span class="mf">513582641.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">     </span><span class="mi">14</span>     <span class="k">return</span> <span class="n">collection_df</span>
-<span class="g g-Whitespace">     </span><span class="mi">15</span> 
-<span class="ne">---&gt; </span><span class="mi">16</span> <span class="n">collection_df</span> <span class="o">=</span> <span class="n">_convolve_df</span><span class="p">(</span><span class="n">collection</span><span class="p">,</span> <span class="n">all_vars</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;collection&#39; is not defined
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1317,7 +1240,7 @@ INFO:datalad:Refresh progress bars
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.28626928607532814
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.28626928535573065
 </pre></div>
 </div>
 </div>
@@ -1329,7 +1252,7 @@ INFO:datalad:Refresh progress bars
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.026594240374889996
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.026594240316020888
 </pre></div>
 </div>
 </div>
@@ -1341,10 +1264,10 @@ INFO:datalad:Refresh progress bars
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.ZSlicer at 0x7efeb3ff7400&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.ZSlicer at 0x7f4408f80460&gt;
 </pre></div>
 </div>
-<img alt="../_images/d5a1eab1454fa943f15e0b264a5502dd52c4d3922761936f902808a5eb08e648.png" src="../_images/d5a1eab1454fa943f15e0b264a5502dd52c4d3922761936f902808a5eb08e648.png" />
+<img alt="../_images/fd5f3a346dda6be77364423736f67e360cb7856ac6d941d8e92c136385bc6b7d.png" src="../_images/fd5f3a346dda6be77364423736f67e360cb7856ac6d941d8e92c136385bc6b7d.png" />
 </div>
 </div>
 </section>
