@@ -1,2 +1,3 @@
 # ignore jupyter book local build files
 _build/*
+*.ipynb_checkpoints*

@@ -33,4 +33,4 @@ parts:
 - caption: "pyNS: Python API"
   chapters:
   - file: python_api/overview
-  - file: python_api/ridge_encoding
+  - file: python_api/tutorials
