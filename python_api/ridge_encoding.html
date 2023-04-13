@@ -68,7 +68,6 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="canonical" href="https://neuroscout.github.io/neuroscout-docs/python_api/ridge_encoding.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="Usage &amp; Reference" href="overview.html" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -198,10 +197,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../cli/Neuroscout_CLI_Colab_Demo.html">Cloud execution on Google Colab</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">pyNS: Python API</span></p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="overview.html">Usage &amp; Reference</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Ridge regression example</a></li>
-
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html">Advanced Usage &amp; Tutorials</a></li>
 </ul>
 
     </div>
@@ -465,7 +463,7 @@ document.write(`
 <h1>Ridge regression example<a class="headerlink" href="#ridge-regression-example" title="Permalink to this heading">#</a></h1>
 <p>This notebook implements a cross-valided voxelwise encoding model for a single subject using Regularized Ridge Regression.</p>
 <p>The goal is to demonstrate how to obtain Neuroscout data to fit models using custom pipelines. For a comprehensive tutorial, check out the excellent <a class="reference external" href="https://gallantlab.github.io/voxelwise_tutorials/index.html">voxelwise modeling tutorials</a> from the Gallant Lab.</p>
-<p><strong>Note</strong>: By implementing a custom pipeline, your analysis will not be centrally registered on <a class="reference external" href="http://neuroscout.org">neuroscout.org</a>, and a reproducible record will not be made. For analyses supported the Neuroscout-CLI (e.g. group voxelwise mass univariate GLM models), it is recommended to use the <a class="reference external" href="http://neuroscout.org">neuroscout.org</a> web inteface, or follow the guide for programmatically <a class="reference external" href="https://pyns.readthedocs.io/en/latest/analyses.html">creating analyses
+<p><strong>Note</strong>: By implementing a custom pipeline, your analysis will not be centrally registered on <a class="reference external" href="http://neuroscout.org">neuroscout.org</a>, and a reproducible record will not be made. For analyses supported the Neuroscout-CLI (e.g. group voxelwise mass univariate GLM models), it is recommended to use the <a class="reference external" href="http://neuroscout.org">neuroscout.org</a> web interface, or follow the guide for programmatically <a class="reference external" href="https://pyns.readthedocs.io/en/latest/analyses.html">creating analyses
 using pyNS</a>.</p>
 <section id="citing-neuroscout">
 <h2>Citing Neuroscout<a class="headerlink" href="#citing-neuroscout" title="Permalink to this heading">#</a></h2>
@@ -475,7 +473,7 @@ using pyNS</a>.</p>
 Visconti di Oleggio Castello, M., Chauhan, V., Jiahui, G., &amp; Gobbini, M. I. An fMRI dataset in response to “The Grand Budapest Hotel”, a socially-rich, naturalistic movie. Sci Data 7, 383 (2020). https://doi.org/10.1038/s41597-020-00735-4
 </pre></div>
 </div>
-<p>If running this notebook on Google Colab, be sure to switch the runtime to GPU to expedite model ftting (Runtime -&gt; Change runtime type)</p>
+<p>If running this notebook on Google Colab, be sure to switch the runtime to GPU to expedite model fitting (Runtime -&gt; Change runtime type)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>#@title 1) Run once to install dependencies on Colab (pyNS, Datalad, and Machine Learning libraries) (~1 minute)
@@ -530,20 +528,12 @@ display(&quot;Done.&quot;)
 <span class="n">first_run</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">runs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">dataset_name</span><span class="o">=</span><span class="n">dataset_name</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">subject</span> <span class="o">=</span> <span class="n">first_run</span><span class="p">[</span><span class="s1">&#39;subject&#39;</span><span class="p">]</span> <span class="c1"># Save subject name</span>
 
-<span class="n">first_run</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">subject</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;acquisition&#39;: None,
- &#39;dataset_id&#39;: 27,
- &#39;duration&#39;: 535.0,
- &#39;id&#39;: 1435,
- &#39;number&#39;: 3,
- &#39;session&#39;: None,
- &#39;subject&#39;: &#39;sid000005&#39;,
- &#39;task&#39;: 48,
- &#39;task_name&#39;: &#39;movie&#39;}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sid000005
 </pre></div>
 </div>
 </div>
@@ -902,9 +892,7 @@ pyNS includes a helper function to facilitate installing and fetching the datase
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/alejandro/miniconda3/envs/nsencoding/lib/python3.10/site-packages/torch/cuda/__init__.py:83: UserWarning: CUDA initialization: Unexpected error from cudaGetDeviceCount(). Did you run some cuda functions before calling NumCudaDevices() that might have already set an error? Error 804: forward compatibility was attempted on non supported HW (Triggered internally at  ../c10/cuda/CUDAFunctions.cpp:109.)
-  return torch._C._cuda_getDeviceCount() &gt; 0
-/home/alejandro/miniconda3/envs/nsencoding/lib/python3.10/site-packages/himalaya/backend/_utils.py:56: UserWarning: Setting backend to torch_cuda failed: PyTorch with CUDA is not available..Falling back to numpy backend.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/alejandro/miniconda3/envs/nsencoding/lib/python3.10/site-packages/himalaya/backend/_utils.py:56: UserWarning: Setting backend to torch_cuda failed: PyTorch with CUDA is not available..Falling back to numpy backend.
   warnings.warn(f&quot;Setting backend to {backend} failed: {str(error)}.&quot;
 </pre></div>
 </div>
@@ -1079,7 +1067,7 @@ pyNS includes a helper function to facilitate installing and fetching the datase
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.ZSlicer at 0x7f441c555d20&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.ZSlicer at 0x7f44051f3b50&gt;
 </pre></div>
 </div>
 <img alt="../_images/2be63bd7cc0358faf20cb0ab26c638527ba8b4f0771054c3168073a01d926d06.png" src="../_images/2be63bd7cc0358faf20cb0ab26c638527ba8b4f0771054c3168073a01d926d06.png" />
@@ -1148,7 +1136,7 @@ pyNS includes a helper function to facilitate installing and fetching the datase
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.ZSlicer at 0x7f4409861a20&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.ZSlicer at 0x7f4407c4e020&gt;
 </pre></div>
 </div>
 <img alt="../_images/160d4130d8762b0cab36d473d34e72fd70f68f0308098bf7a7a304f85177b24b.png" src="../_images/160d4130d8762b0cab36d473d34e72fd70f68f0308098bf7a7a304f85177b24b.png" />
@@ -1264,7 +1252,7 @@ pyNS includes a helper function to facilitate installing and fetching the datase
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.ZSlicer at 0x7f4408f80460&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;nilearn.plotting.displays._slicers.ZSlicer at 0x7f4407769570&gt;
 </pre></div>
 </div>
 <img alt="../_images/fd5f3a346dda6be77364423736f67e360cb7856ac6d941d8e92c136385bc6b7d.png" src="../_images/fd5f3a346dda6be77364423736f67e360cb7856ac6d941d8e92c136385bc6b7d.png" />
@@ -1318,15 +1306,6 @@ pyNS includes a helper function to facilitate installing and fetching the datase
   
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="overview.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Usage &amp; Reference</p>
-      </div>
-    </a>
 </div></div>
   
 </div>

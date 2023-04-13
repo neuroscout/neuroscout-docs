@@ -198,8 +198,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">pyNS: Python API</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="python_api/overview.html">Usage &amp; Reference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="python_api/ridge_encoding.html">Ridge regression example</a></li>
-
+<li class="toctree-l1"><a class="reference internal" href="python_api/tutorials.html">Advanced Usage &amp; Tutorials</a></li>
 </ul>
 
     </div>
@@ -310,6 +309,103 @@ document.write(`
     
   </h1>
   
+  
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
+      <a href="updates/2023-04-7-fetch_utils.html">API for fetching Neuroscout data for analysis and an encoding model example</a>
+    </h2>
+    <ul class="ablog-archive">
+      <li>
+        
+        
+        <i class="fa fa-calendar"></i>
+        
+        07 April 2023
+        
+      </li>
+      
+
+<li id="ablog-sidebar-item author ablog__author">
+  <span>
+    
+    <i class="fa-fw fa fa-user"></i>
+    
+    </span>
+  
+  
+  <a href="updates/author/alejandro-de-la-vega.html">Alejandro de la Vega</a>
+  
+  
+  
+</li>
+
+
+
+
+
+<li id="ablog-sidebar-item tags ablog__tags">
+  <span>
+    
+    
+    <i class="fa-fw fa fa-tags"></i>
+    
+    
+    </span>
+  
+  
+  <a href="updates/tag/pyns.html">pyns</a>
+  
+  
+  
+  
+  
+  <a href="updates/tag/api.html">api</a>
+  
+  
+  
+  
+  
+  <a href="updates/tag/newsletter.html">newsletter</a>
+  
+  
+  
+  
+  
+  <a href="updates/tag/encoding.html">encoding</a>
+  
+  
+  
+</li>
+
+
+    </ul>
+    <div class="ablog-post-excerpt docutils container">
+<p>One of the primary goals of Neuroscout is to make it easy to create and share fully reproducible fMRI analyses using a fully web-based interface. However, there is always a tradeoff between <em>ease of use and flexibility</em>. To make Neuroscout easy to use, we have to make assumptions about the types of analyses that users want to perform. We ensure the reproducibility of analyses by only allowing users to perform analyses that are fully specified in the BIDS Stats Model specification, and are executable by <a class="reference external" href="https://fitlins.readthedocs.io/en/latest/">FitLins</a> (a BIDS App that implements the <a class="reference external" href="https://bids-standard.github.io/stats-models/">BIDS Stats Model specification</a>). As of now, this means that users can only perform multi-level GLM analyses, and can only use predictors that are indexed by Neuroscout.</p>
+<p>As such, there are many analyses that are not possible to perform using the web-based Neuroscout interface. This can be a challenge for naturalistic data in particular, as this area of research is rapid evolving and new analyses are constantly being developed. Although we have plans to continously expand the types of analyses that can be performed on Neuroscout (and in turn BIDS Stats Model and FitLins), there will always be analyses that are not possible to perform in a centralized fashion using a web interface.</p>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "neuroscout/neuroscout-docs",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+    <p class="ablog-post-expand"><a href="updates/2023-04-7-fetch_utils.html"><em>Read more ...</em></a></p>
+    <hr/>
+  </div>
   
   <div class="section ablog-post">
     <h2 class="ablog-post-title">

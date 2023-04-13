@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Overview</title>
+    <title>API for fetching Neuroscout data for analysis and an encoding model example</title>
   
   
   
@@ -64,12 +64,10 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'cli/intro';</script>
-    <link rel="canonical" href="https://neuroscout.github.io/neuroscout-docs/cli/intro.html" />
+    <script>DOCUMENTATION_OPTIONS.pagename = 'updates/2023-04-7-fetch_utils';</script>
+    <link rel="canonical" href="https://neuroscout.github.io/neuroscout-docs/updates/2023-04-7-fetch_utils.html" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Portable Docker Execution" href="docker.html" />
-    <link rel="prev" title="Uploading Predictors" href="../web/upload.html" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -192,11 +190,11 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../web/upload.html">Uploading Predictors</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">CLI: Running analyses</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="docker.html">Portable Docker Execution</a></li>
-<li class="toctree-l1"><a class="reference internal" href="singularity.html">Singularity for HPCs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Neuroscout_CLI_Colab_Demo.html">Cloud execution on Google Colab</a></li>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../cli/intro.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli/docker.html">Portable Docker Execution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli/singularity.html">Singularity for HPCs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cli/Neuroscout_CLI_Colab_Demo.html">Cloud execution on Google Colab</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">pyNS: Python API</span></p>
 <ul class="nav bd-sidenav">
@@ -245,7 +243,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="article-header-buttons">
 
 
-<a href="https://github.com/neuroscout/neuroscout-docs/edit/main/docs/cli/intro.md" target="_blank"
+<a href="https://github.com/neuroscout/neuroscout-docs/edit/main/docs/updates/2023-04-7-fetch_utils.md" target="_blank"
    class="btn btn-sm btn-source-edit-button"
    title="Suggest edit"
    data-bs-placement="bottom" data-bs-toggle="tooltip"
@@ -271,7 +269,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/cli/intro.md" target="_blank"
+      <li><a href="../_sources/updates/2023-04-7-fetch_utils.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -353,7 +351,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Overview</h1>
+    <h1>API for fetching Neuroscout data for analysis and an encoding model example</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -363,17 +361,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-started">Getting Started 🚀</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#documentation-and-reference">Documentation and Reference</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#containerized-execution">Containerized Execution</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#docker">Docker</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#singularity">Singularity</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#manually-prepared-environment-using-pip">Manually prepared environment using pip</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#new-utilities-for-fetching-neuroscout-data">New utilities for fetching Neuroscout data 🛠️</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#encoding-model-tutorials">Encoding model tutorials! 🚀</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#where-to-go-from-here">Where to go from here?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgements">Acknowledgements</a></li>
 </ul>
             </nav>
         </div>
@@ -385,55 +376,40 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-<section class="tex2jax_ignore mathjax_ignore" id="overview">
-<h1>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h1>
-<p>The Neuroscout Command Line Interface (<em>neuroscout-cli</em>) allows you to execute analyses created on <a class="reference external" href="https://neuroscout.org">neuroscout.org</a>.</p>
-<p><em>neuroscout-cli</em> makes it easy to run your analysis with no configuration by fetching a self-contained analysis bundle, and downloading the required preprocessed fMRI data using <a class="reference external" href="https://www.datalad.org/">DataLad</a>. <em>neuroscout-cli</em> internally uses <a class="reference external" href="https://github.com/poldracklab/fitlins">FitLins</a>, a python pipeline for fMRI analysis in BIDS, to fit a statistical model to the fMRI data, and produce comprehensive reports. <em>neuroscout-cli</em> automatically uploads the resulting images to <a class="reference external" href="https://www.neurovault.org/">Neurovault</a>, and links them to the analysis listing, making it easy to view and share your results.</p>
-<p><img alt="fig2b" src="../_images/Figure2b.png" /></p>
-<section id="getting-started">
-<h2>Getting Started 🚀<a class="headerlink" href="#getting-started" title="Permalink to this heading">#</a></h2>
-<p>If this is your first time running an analysis, follow our interactive guide to <a class="reference internal" href="Neuroscout_CLI_Colab_Demo.html"><span class="doc std std-doc">Cloud execution on Google Colab</span></a> to run a demo of <em>Neuroscout-CLI</em> in the cloud without using any local resources!</p>
-<div class="admonition-note admonition">
-<p class="admonition-title">Note</p>
-<p>Google Colab allows you to execute Jupyer Notebooks for free, using two CPUs for ~6 hours. This should be sufficient for individual Neuroscout analyses. A small demonstration can be run live in ~15 mins, and a normal analysis should execute in a few hours.</p>
-</div>
+<section class="tex2jax_ignore mathjax_ignore" id="api-for-fetching-neuroscout-data-for-analysis-and-an-encoding-model-example">
+<h1>API for fetching Neuroscout data for analysis and an encoding model example<a class="headerlink" href="#api-for-fetching-neuroscout-data-for-analysis-and-an-encoding-model-example" title="Permalink to this heading">#</a></h1>
+<p>One of the primary goals of Neuroscout is to make it easy to create and share fully reproducible fMRI analyses using a fully web-based interface. However, there is always a tradeoff between <em>ease of use and flexibility</em>. To make Neuroscout easy to use, we have to make assumptions about the types of analyses that users want to perform. We ensure the reproducibility of analyses by only allowing users to perform analyses that are fully specified in the BIDS Stats Model specification, and are executable by <a class="reference external" href="https://fitlins.readthedocs.io/en/latest/">FitLins</a> (a BIDS App that implements the <a class="reference external" href="https://bids-standard.github.io/stats-models/">BIDS Stats Model specification</a>). As of now, this means that users can only perform multi-level GLM analyses, and can only use predictors that are indexed by Neuroscout.</p>
+<p>As such, there are many analyses that are not possible to perform using the web-based Neuroscout interface. This can be a challenge for naturalistic data in particular, as this area of research is rapid evolving and new analyses are constantly being developed. Although we have plans to continously expand the types of analyses that can be performed on Neuroscout (and in turn BIDS Stats Model and FitLins), there will always be analyses that are not possible to perform in a centralized fashion using a web interface.</p>
+<p>To address this, we have released a new set of API utilities (<code class="docutils literal notranslate"><span class="pre">pyns.fetch_utils</span></code>) that allow users to easily fetch data from the Neuroscout API for custom analysis. 🎉</p>
+<section id="new-utilities-for-fetching-neuroscout-data">
+<h2>New utilities for fetching Neuroscout data 🛠️<a class="headerlink" href="#new-utilities-for-fetching-neuroscout-data" title="Permalink to this heading">#</a></h2>
+<p>This new addition allows users to fetch both predictors and brain imaging time courses from Neuroscout using a simple, uniform API.</p>
+<p>As a reminder, Neuroscout indexes over a dozen openly available neuroimaging datasets (browse here: <a class="reference external" href="https://neuroscout.org/datasets">https://neuroscout.org/datasets</a>), and for each dataset we extract hundreds of predictors (browse here: <a class="reference external" href="https://neuroscout.org/predictors">https://neuroscout.org/predictors</a>). All of these predictors are centrally indexed by Neuroscout, and made publicly available using a uniform API, which can be access using the <a class="reference external" href="https://pyns.readthedocs.io/en/latest">pyNS</a> Python client.</p>
+<p>The new <code class="docutils literal notranslate"><span class="pre">pyns.fetch_utils</span></code> allow users to easily fetch predictors and brain imaging time courses from any of these datasets.</p>
+<p><code class="docutils literal notranslate"><span class="pre">fetch_predictors</span></code> allows users to fetch several predictors from any of the indexed datasets simultaneously using a simple API, and optionally apply transformations using the <code class="docutils literal notranslate"><span class="pre">pybids.modeling</span></code> tools (like you would in BIDS Stats Models). For example, you can easily resample the predictors to TR (which may be sampled at different rates), rescale them, and densify them (may be sparse) into an aligned timecourse.</p>
+<p><code class="docutils literal notranslate"><span class="pre">fetch_images</span></code> allows users to downloading preprocessed brain imaging time courses from any of the indexed datasets (with the help of <a class="reference external" href="https://www.datalad.org/">DataLad</a> that align with the predictors.</p>
+<p>With a set of predictors, and a set of brain imaging time courses, users can then easily fit any custom analysis they want using their favorite machine learning library, such as <a class="reference external" href="https://nilearn.github.io/stable/">nilearn</a> or <a class="reference external" href="https://scikit-learn.org/stable/">scikit-learn</a>.</p>
+<p>To learn more about <code class="docutils literal notranslate"><span class="pre">pyns.fetch_utils</span></code>, check out the <a class="reference external" href="https://pyns.readthedocs.io/en/latest/fetching.html">documentation</a>.</p>
 </section>
-<section id="documentation-and-reference">
-<h2>Documentation and Reference<a class="headerlink" href="#documentation-and-reference" title="Permalink to this heading">#</a></h2>
-<p><a class="reference external" href="https://neuroscout-cli.readthedocs.io/en/latest/?badge=latest"><img alt="Documentation Status" src="https://readthedocs.org/projects/neuroscout-cli/badge/?version=latest&amp;style=flat" /></a> <a class="reference external" href="https://badge.fury.io/py/neuroscout_cli"><img alt="PyPI version" src="https://badge.fury.io/py/neuroscout_cli.svg" /></a></p>
-<p>For comprehensive reference of <em>Neuroscout-CLI</em> , please visit the official <a class="reference external" href="https://neuroscout-cli.readthedocs.io/en/latest/">Neuroscout-CLI Documentation</a> on ReadTheDocs. These docs are updated as new Neuroscout-CLI versions are released.</p>
+<section id="encoding-model-tutorials">
+<h2>Encoding model tutorials! 🚀<a class="headerlink" href="#encoding-model-tutorials" title="Permalink to this heading">#</a></h2>
+<p>To demonstrate how to use <code class="docutils literal notranslate"><span class="pre">pyns.fetch_utils</span></code>, we have created two new example notebook that demonstrate how to fit a simple voxelwise encoding model using the new API fetch utilities.</p>
+<p>In the first example, we implement a cross-validated voxelwise encoding model for a single subject using ridge regression implemented in <a class="reference external" href="https://github.com/gallantlab/himalaya">Himalaya</a>. In the second example, we fit two feature sets jointly in the same model using a technique known as banded ridge regression. These techniques are very useful for fitting high dimensional feature sets to fMRI data, which is particularly useful for naturalistic data.</p>
+<p>These example were based on the fantastic <a class="reference external" href="https://gallantlab.org/voxelwise_tutorials/">voxelwise modeling tutorials</a> by the Gallant Lab , so be sure to check out their tutorials if you are interested in learning more about voxelwise encoding models for fMRI data.</p>
+<p>Check out the examples <a class="reference external" href="https://neuroscout.github.io/neuroscout-docs/python_api/tutorials.html">in the Neuroscout Docs tutorials</a>, and follow along in the cloud using Google Colab by clicking on the 🚀.</p>
 </section>
-<section id="installation">
-<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this heading">#</a></h2>
-<p>The recommended way to install <code class="docutils literal notranslate"><span class="pre">Neuroscout-CLI</span></code> is using containers (i.e. Docker or Singularity) to facilitate dependency managment.</p>
-<section id="containerized-execution">
-<h3>Containerized Execution<a class="headerlink" href="#containerized-execution" title="Permalink to this heading">#</a></h3>
-<section id="docker">
-<h4>Docker<a class="headerlink" href="#docker" title="Permalink to this heading">#</a></h4>
-<p><img alt="DockerPulls" src="https://img.shields.io/docker/pulls/neuroscout/neuroscout-cli.svg" /></p>
-<p>For most systems (i.e. laptops and workstations), we recommend using <a class="reference external" href="https://www.docker.com/resources/what-container">Docker</a>.
-First, follow the instructions for installing <a class="reference external" href="https://docs.docker.com/engine/install/">Docker</a> on your system.</p>
-<p>Next, follow the <a class="reference internal" href="docker.html"><span class="doc std std-doc">Portable Docker Execution</span></a> guide in the Neuroscout Docs.</p>
+<section id="where-to-go-from-here">
+<h2>Where to go from here?<a class="headerlink" href="#where-to-go-from-here" title="Permalink to this heading">#</a></h2>
+<p>We hope <code class="docutils literal notranslate"><span class="pre">pyns.fetch_utils</span></code> will help you create your own custom workflows using the Neuroscout platform.</p>
+<p>However, be aware we are actively working on expanding the types of analyses that can be performed on Neuroscout, with a focus on adding support for voxelwise encoding models in BIDS Stats Models and <a class="reference external" href="https://neuroscout-cli.readthedocs.io/en/latest/">Neuroscout-CLI</a>.</p>
+<p>Also, note that by implementing a custom pipeline, your analysis will not be centrally registered on <a class="reference external" href="http://neuroscout.org">neuroscout.org</a>, and a reproducible record will not be made. For analyses supported the <a class="reference external" href="https://neuroscout-cli.readthedocs.io/en/latest/">Neuroscout-CLI</a>, it is recommended to use the <a class="reference external" href="http://neuroscout.org">neuroscout.org</a> web interface, or follow the guide for programmatically creating analyses using <a class="reference external" href="https://pyns.readthedocs.io/en/latest/analyses.html">pyNS</a>.</p>
+<p>Finally, if you develop a workflow using <code class="docutils literal notranslate"><span class="pre">pyns.fetch_utils</span></code>, we would love to hear about it, so we can help you share it with the community!</p>
+<p>Be sure to stay tuned for more updates, and get in touch if you want to contribute!</p>
 </section>
-<section id="singularity">
-<h4>Singularity<a class="headerlink" href="#singularity" title="Permalink to this heading">#</a></h4>
-<p><a class="reference external" href="https://sylabs.io/singularity/">Singularity</a> containers are a great solution for High Performance Computing (HPC) environments, where <em>Docker</em> cannot typically be used due to more tightly controlled <a class="reference external" href="https://researchcomputing.princeton.edu/support/knowledge-base/singularity">user privileges</a>.</p>
-<p>First, check with your HPC administrator that <em>Singularity</em> is available for use. If so, follow our guide on <a class="reference internal" href="singularity.html"><span class="doc std std-doc">Singularity for HPCs</span></a> in the offical <a class="reference external" href="https://neuroscout.org/docs">Neuroscout Docs</a>.</p>
-</section>
-</section>
-<section id="manually-prepared-environment-using-pip">
-<h3>Manually prepared environment using pip<a class="headerlink" href="#manually-prepared-environment-using-pip" title="Permalink to this heading">#</a></h3>
-<p><a class="reference external" href="https://badge.fury.io/py/neuroscout_cli"><img alt="PyPI version" src="https://badge.fury.io/py/neuroscout_cli.svg" /></a></p>
-<div class="admonition-danger admonition">
-<p class="admonition-title">Danger</p>
-<p>Manually installing <em>neuroscout-cli</em> can be difficult due to complex dependencies in the SciPy stack, or fMRI-specific tooling.
-Proceed only if you know what you’re doing.</p>
-</div>
-<p>Use pip to install <em>neuroscout-cli</em> from PyPI:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>pip install neuroscout-cli
-</pre></div>
-</div>
-</section>
+<section id="acknowledgements">
+<h2>Acknowledgements<a class="headerlink" href="#acknowledgements" title="Permalink to this heading">#</a></h2>
+<p>Thank you to Roberta Rocca and Sam Nastase for their help in developing the example encoding model notebook during the 2022 OHBM Hackathon!
+Also thank you to Jeff Mentch, for his help in developing the <code class="docutils literal notranslate"><span class="pre">pyns.fetch_utils</span></code> API, and giving feedback on the Neuroscout platform.</p>
 </section>
 </section>
 
@@ -450,13 +426,35 @@ Proceed only if you know what you’re doing.</p>
         },
         kernelOptions: {
             name: "python3",
-            path: "./cli"
+            path: "./updates"
         },
         predefinedOutput: true
     }
     </script>
     <script>kernelName = 'python3'</script>
 <div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    <a href="2022-08-25-preprint.html">
+      
+      <i class="fa fa-arrow-circle-left"></i>
+      
+      <span>Big news from the Neuroscout team!</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+  </span>
+</div>
+
   
   
 </div>
@@ -472,24 +470,6 @@ Proceed only if you know what you’re doing.</p>
   
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="../web/upload.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Uploading Predictors</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="docker.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Portable Docker Execution</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div></div>
   
 </div>
@@ -508,17 +488,10 @@ Proceed only if you know what you’re doing.</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-started">Getting Started 🚀</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#documentation-and-reference">Documentation and Reference</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#containerized-execution">Containerized Execution</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#docker">Docker</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#singularity">Singularity</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#manually-prepared-environment-using-pip">Manually prepared environment using pip</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#new-utilities-for-fetching-neuroscout-data">New utilities for fetching Neuroscout data 🛠️</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#encoding-model-tutorials">Encoding model tutorials! 🚀</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#where-to-go-from-here">Where to go from here?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledgements">Acknowledgements</a></li>
 </ul>
   </nav></div>
 

@@ -2,10 +2,49 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
   <id>https://neuroscout.github.io/neuroscout-docs/</id>
   <title>Neuroscout Blog - Posts by Alejandro de la Vega</title>
-  <updated>2023-04-13T22:57:13.777321+00:00</updated>
+  <updated>2023-04-13T23:21:42.046864+00:00</updated>
   <link href="https://neuroscout.github.io/neuroscout-docs/"/>
   <link href="https://neuroscout.github.io/neuroscout-docs/updates/author/alejandro-de-la-vega/atom.xml" rel="self"/>
   <generator uri="https://ablog.readthedocs.io/" version="0.11.3">ABlog</generator>
+  <entry>
+    <id>https://neuroscout.github.io/neuroscout-docs/updates/2023-04-7-fetch_utils.html</id>
+    <title>API for fetching Neuroscout data for analysis and an encoding model example</title>
+    <updated>2023-04-07T00:00:00+00:00</updated>
+    <author>
+      <name>Alejandro de la Vega</name>
+    </author>
+    <content type="html">&lt;div class="ablog-post-excerpt docutils container"&gt;
+&lt;p&gt;One of the primary goals of Neuroscout is to make it easy to create and share fully reproducible fMRI analyses using a fully web-based interface. However, there is always a tradeoff between &lt;em&gt;ease of use and flexibility&lt;/em&gt;. To make Neuroscout easy to use, we have to make assumptions about the types of analyses that users want to perform. We ensure the reproducibility of analyses by only allowing users to perform analyses that are fully specified in the BIDS Stats Model specification, and are executable by &lt;a class="reference external" href="https://fitlins.readthedocs.io/en/latest/"&gt;FitLins&lt;/a&gt; (a BIDS App that implements the &lt;a class="reference external" href="https://bids-standard.github.io/stats-models/"&gt;BIDS Stats Model specification&lt;/a&gt;). As of now, this means that users can only perform multi-level GLM analyses, and can only use predictors that are indexed by Neuroscout.&lt;/p&gt;
+&lt;p&gt;As such, there are many analyses that are not possible to perform using the web-based Neuroscout interface. This can be a challenge for naturalistic data in particular, as this area of research is rapid evolving and new analyses are constantly being developed. Although we have plans to continously expand the types of analyses that can be performed on Neuroscout (and in turn BIDS Stats Model and FitLins), there will always be analyses that are not possible to perform in a centralized fashion using a web interface.&lt;/p&gt;
+&lt;/div&gt;
+
+    &lt;script type="text/x-thebe-config"&gt;
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "neuroscout/neuroscout-docs",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./updates/author"
+        },
+        predefinedOutput: true
+    }
+    &lt;/script&gt;
+    &lt;script&gt;kernelName = 'python3'&lt;/script&gt;</content>
+    <link href="https://neuroscout.github.io/neuroscout-docs/updates/2023-04-7-fetch_utils.html" rel="alternate"/>
+    <summary>One of the primary goals of Neuroscout is to make it easy to create and share fully reproducible fMRI analyses using a fully web-based interface. However, there is always a tradeoff between ease of use and flexibility. To make Neuroscout easy to use, we have to make assumptions about the types of analyses that users want to perform. We ensure the reproducibility of analyses by only allowing users to perform analyses that are fully specified in the BIDS Stats Model specification, and are executable by FitLins (a BIDS App that implements the BIDS Stats Model specification). As of now, this means that users can only perform multi-level GLM analyses, and can only use predictors that are indexed by Neuroscout.As such, there are many analyses that are not possible to perform using the web-based Neuroscout interface. This can be a challenge for naturalistic data in particular, as this area of research is rapid evolving and new analyses are constantly being developed. Although we have plans to continously expand the types of analyses that can be performed on Neuroscout (and in turn BIDS Stats Model and FitLins), there will always be analyses that are not possible to perform in a centralized fashion using a web interface.</summary>
+    <category term="api" label="api"/>
+    <category term="encoding" label="encoding"/>
+    <category term="newsletter" label="newsletter"/>
+    <category term="pyns" label="pyns"/>
+    <published>2023-04-07T00:00:00+00:00</published>
+  </entry>
   <entry>
     <id>https://neuroscout.github.io/neuroscout-docs/updates/2022-08-25-preprint.html</id>
     <title>Big news from the Neuroscout team!</title>
