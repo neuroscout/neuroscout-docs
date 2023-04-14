@@ -6,19 +6,19 @@
 :excerpt: 2
 ```
 
-One of the primary goals of Neuroscout is to make it easy to create and share fully reproducible fMRI analyses using a fully web-based interface. However, there is always a tradeoff between *ease of use and flexibility*. To make Neuroscout easy to use, we have to make assumptions about the types of analyses that users want to perform. We ensure the reproducibility of analyses by only allowing users to perform analyses that are fully specified in the BIDS Stats Model specification, and are executable by [FitLins](https://fitlins.readthedocs.io/en/latest/) (a BIDS App that implements the [BIDS Stats Model specification](https://bids-standard.github.io/stats-models/)). As of now, this means that users can only perform multi-level GLM analyses, and can only use predictors that are indexed by Neuroscout.
+Neuroscout makes it easy to create and share fully reproducible fMRI analyses using a fully web-based interface. However, there are tradeoffs between *ease of use and flexibility*. To make Neuroscout easy to use, we have to make assumptions about the types of analyses that users want to perform. We ensure reproducibility by only allowing users to perform analyses that can be fully specified by [BIDS Stats Models](https://bids-standard.github.io/stats-models/), and are executable by [FitLins](https://fitlins.readthedocs.io/en/latest/). Currently, this means multi level GLM analyzes using predictors pre-extracted and indexed by the Neuroscout API.
 
-As such, there are many analyses that are not possible to perform using the web-based Neuroscout interface. This can be a challenge for naturalistic data in particular, as this area of research is rapid evolving and new analyses are constantly being developed. Although we have plans to continously expand the types of analyses that can be performed on Neuroscout (and in turn BIDS Stats Model and FitLins), there will always be analyses that are not possible to perform in a centralized fashion using a web interface.
-
-To address this, we have released a new set of API utilities (`pyns.fetch_utils`) that allow users to easily fetch data from the Neuroscout API for custom analysis. 🎉 
+As a consequence, there will always be newer types of analyses that are not possible to specify using the web-based Neuroscout interface. This can be a challenge for naturalistic data in particular, as this area of research is rapid evolving and new analyses are constantly being developed. Although we have plans to continously expand the types of analyses that can be performed on Neuroscout (and in turn BIDS Stats Model and FitLins), there will always be analyses that are not possible to perform in a centralized fashion using a web interface.
 
 ## New utilities for fetching Neuroscout data 🛠️
 
+To address this limitation, we have released a new set of API utilities (`pyns.fetch_utils`) that allow users to easily fetch data from the Neuroscout API for custom analysis. 🎉 
+
 This new addition allows users to fetch both predictors and brain imaging time courses from Neuroscout using a simple, uniform API. 
 
-As a reminder, Neuroscout indexes over a dozen openly available neuroimaging datasets (browse here: https://neuroscout.org/datasets), and for each dataset we extract hundreds of predictors (browse here: https://neuroscout.org/predictors). All of these predictors are centrally indexed by Neuroscout, and made publicly available using a uniform API, which can be access using the [pyNS](https://pyns.readthedocs.io/en/latest) Python client.
+As a reminder, Neuroscout indexes over a dozen openly available neuroimaging datasets (browse here: https://neuroscout.org/datasets), and for each dataset we extract hundreds of predictors (browse here: https://neuroscout.org/predictors). All of these predictors are centrally indexed by Neuroscout, and made publicly available using a uniform API, which can be accessed using the [pyNS](https://pyns.readthedocs.io/en/latest) Python client.
 
-The new `pyns.fetch_utils` allow users to easily fetch predictors and brain imaging time courses from any of these datasets. 
+The new `pyns.fetch_utils` utilities make this process even easier by providing a simplified user interface, and performing common transformations to make the data readily usable.
 
 `fetch_predictors` allows users to fetch several predictors from any of the indexed datasets simultaneously using a simple API, and optionally apply transformations using the `pybids.modeling` tools (like you would in BIDS Stats Models). For example, you can easily resample the predictors to TR (which may be sampled at different rates), rescale them, and densify them (may be sparse) into an aligned timecourse. 
 
