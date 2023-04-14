@@ -1,4 +1,4 @@
-# API for fetching Neuroscout data for analysis and an encoding model example
+# Annoucing `pyns.fetch_utils`-- a simple API for fetching Neuroscout data, and new encoding model tutorials
 
 ```{post} 2023-04-7
 :author: Alejandro de la Vega

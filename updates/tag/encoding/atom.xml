@@ -2,13 +2,13 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
   <id>https://neuroscout.github.io/neuroscout-docs/</id>
   <title>Neuroscout Blog - Posts tagged encoding</title>
-  <updated>2023-04-14T15:34:32.211472+00:00</updated>
+  <updated>2023-04-14T15:35:20.226435+00:00</updated>
   <link href="https://neuroscout.github.io/neuroscout-docs/"/>
   <link href="https://neuroscout.github.io/neuroscout-docs/updates/tag/encoding/atom.xml" rel="self"/>
   <generator uri="https://ablog.readthedocs.io/" version="0.11.3">ABlog</generator>
   <entry>
     <id>https://neuroscout.github.io/neuroscout-docs/updates/2023-04-7-fetch_utils.html</id>
-    <title>API for fetching Neuroscout data for analysis and an encoding model example</title>
+    <title>Annoucing pyns.fetch_utils– a simple API for fetching Neuroscout data, and new encoding model tutorials</title>
     <updated>2023-04-07T00:00:00+00:00</updated>
     <author>
       <name>Alejandro de la Vega</name>
