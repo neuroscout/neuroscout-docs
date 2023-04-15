@@ -20,9 +20,9 @@ As a reminder, Neuroscout indexes over a dozen openly available neuroimaging dat
 
 The new `pyns.fetch_utils` utilities make this process even easier by providing a simplified user interface, and performing common transformations to make the data readily usable.
 
-`fetch_predictors` allows users to fetch several predictors from any of the indexed datasets simultaneously using a simple API, and optionally apply transformations using the `pybids.modeling` tools (like you would in BIDS Stats Models). For example, you can easily resample the predictors to TR (which may be sampled at different rates), rescale them, and densify them (may be sparse) into an aligned timecourse. 
+`fetch_predictors` allows users to fetch several predictors from any of the indexed datasets simultaneously using a simple API, and optionally apply transformations using the `pybids.modeling` tools (like you would in BIDS Stats Models). For example, you can easily resample the predictors to TR (which may be sampled at different rates), rescale them, and align them to the fMRI timecourse. 
 
-`fetch_images` allows users to downloading preprocessed brain imaging time courses from any of the indexed datasets (with the help of [DataLad](https://www.datalad.org/) that align with the predictors.
+`fetch_images` allows users to download preprocessed brain imaging time courses from any of the indexed datasets (with the help of [DataLad](https://www.datalad.org/) that align with the predictors.
 
 With a set of predictors, and a set of brain imaging time courses, users can then easily fit any custom analysis they want using their favorite machine learning library, such as [nilearn](https://nilearn.github.io/stable/) or [scikit-learn](https://scikit-learn.org/stable/). 
 
@@ -30,7 +30,7 @@ To learn more about `pyns.fetch_utils`, check out the [documentation](https://py
 
 ## Encoding model tutorials! 🚀
 
-To demonstrate how to use `pyns.fetch_utils`, we have created two new example notebook that demonstrate how to fit a simple voxelwise encoding model using the new API fetch utilities. 
+To demonstrate how to use `pyns.fetch_utils`, we have created two new example notebooks that demonstrate how to fit a simple voxelwise encoding model using the new API fetch utilities. 
 
 In the first example, we implement a cross-validated voxelwise encoding model for a single subject using ridge regression implemented in [Himalaya](https://github.com/gallantlab/himalaya). In the second example, we fit two feature sets jointly in the same model using a technique known as banded ridge regression. These techniques are very useful for fitting high dimensional feature sets to fMRI data, which is particularly useful for naturalistic data.
 
